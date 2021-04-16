@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101172084AA4A6DAA060CF3D /* Pods_BuscardorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3C8C8347096BC8E05C897A /* Pods_BuscardorTests.framework */; };
+		6275516FE3E71751938BCA8D /* Pods_Buscardor_BuscardorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F9A7A7D1214F4C4C3BD645 /* Pods_Buscardor_BuscardorUITests.framework */; };
+		7C045CF550A06A281F586F3E /* Pods_Buscardor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFFAA4AAD59C88F04982612A /* Pods_Buscardor.framework */; };
 		90A5388A2629224C00B43966 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A538892629224C00B43966 /* AppDelegate.swift */; };
 		90A5388C2629224C00B43966 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5388B2629224C00B43966 /* SceneDelegate.swift */; };
 		90A5388E2629224C00B43966 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5388D2629224C00B43966 /* ViewController.swift */; };
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B3C8C8347096BC8E05C897A /* Pods_BuscardorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuscardorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10F9A7A7D1214F4C4C3BD645 /* Pods_Buscardor_BuscardorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buscardor_BuscardorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		269761321942EC6650E4568A /* Pods-BuscardorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuscardorTests.debug.xcconfig"; path = "Target Support Files/Pods-BuscardorTests/Pods-BuscardorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6C6EC5757D75E00AD8A63359 /* Pods-Buscardor-BuscardorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buscardor-BuscardorUITests.debug.xcconfig"; path = "Target Support Files/Pods-Buscardor-BuscardorUITests/Pods-Buscardor-BuscardorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		77B8ADAE4FC2E337D3E0A436 /* Pods-BuscardorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuscardorTests.release.xcconfig"; path = "Target Support Files/Pods-BuscardorTests/Pods-BuscardorTests.release.xcconfig"; sourceTree = "<group>"; };
+		8BD59EA078E8CA884C91A71C /* Pods-Buscardor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buscardor.debug.xcconfig"; path = "Target Support Files/Pods-Buscardor/Pods-Buscardor.debug.xcconfig"; sourceTree = "<group>"; };
 		90A538862629224C00B43966 /* Buscardor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Buscardor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A538892629224C00B43966 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90A5388B2629224C00B43966 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +58,9 @@
 		90A538A72629224F00B43966 /* BuscardorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuscardorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A538AB2629224F00B43966 /* BuscardorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuscardorUITests.swift; sourceTree = "<group>"; };
 		90A538AD2629224F00B43966 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFFAA4AAD59C88F04982612A /* Pods_Buscardor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buscardor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6C9219696021B7803B3D737 /* Pods-Buscardor-BuscardorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buscardor-BuscardorUITests.release.xcconfig"; path = "Target Support Files/Pods-Buscardor-BuscardorUITests/Pods-Buscardor-BuscardorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EDDEE99A1B077259BD50ECBA /* Pods-Buscardor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buscardor.release.xcconfig"; path = "Target Support Files/Pods-Buscardor/Pods-Buscardor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C045CF550A06A281F586F3E /* Pods_Buscardor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				101172084AA4A6DAA060CF3D /* Pods_BuscardorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6275516FE3E71751938BCA8D /* Pods_Buscardor_BuscardorUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E75D33161B3DC705E0AF75D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8BD59EA078E8CA884C91A71C /* Pods-Buscardor.debug.xcconfig */,
+				EDDEE99A1B077259BD50ECBA /* Pods-Buscardor.release.xcconfig */,
+				6C6EC5757D75E00AD8A63359 /* Pods-Buscardor-BuscardorUITests.debug.xcconfig */,
+				E6C9219696021B7803B3D737 /* Pods-Buscardor-BuscardorUITests.release.xcconfig */,
+				269761321942EC6650E4568A /* Pods-BuscardorTests.debug.xcconfig */,
+				77B8ADAE4FC2E337D3E0A436 /* Pods-BuscardorTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		90A5387D2629224C00B43966 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +112,8 @@
 				90A5389F2629224F00B43966 /* BuscardorTests */,
 				90A538AA2629224F00B43966 /* BuscardorUITests */,
 				90A538872629224C00B43966 /* Products */,
+				8E75D33161B3DC705E0AF75D /* Pods */,
+				D2FF03CDC8403295F5127674 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +159,16 @@
 			path = BuscardorUITests;
 			sourceTree = "<group>";
 		};
+		D2FF03CDC8403295F5127674 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFFAA4AAD59C88F04982612A /* Pods_Buscardor.framework */,
+				10F9A7A7D1214F4C4C3BD645 /* Pods_Buscardor_BuscardorUITests.framework */,
+				0B3C8C8347096BC8E05C897A /* Pods_BuscardorTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +176,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90A538B02629224F00B43966 /* Build configuration list for PBXNativeTarget "Buscardor" */;
 			buildPhases = (
+				A8EB9E926704A73CF2E685C4 /* [CP] Check Pods Manifest.lock */,
 				90A538822629224C00B43966 /* Sources */,
 				90A538832629224C00B43966 /* Frameworks */,
 				90A538842629224C00B43966 /* Resources */,
@@ -152,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90A538B32629224F00B43966 /* Build configuration list for PBXNativeTarget "BuscardorTests" */;
 			buildPhases = (
+				BB9051D0BA47BAC9BFB699A5 /* [CP] Check Pods Manifest.lock */,
 				90A538982629224F00B43966 /* Sources */,
 				90A538992629224F00B43966 /* Frameworks */,
 				90A5389A2629224F00B43966 /* Resources */,
@@ -170,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90A538B62629224F00B43966 /* Build configuration list for PBXNativeTarget "BuscardorUITests" */;
 			buildPhases = (
+				DE234A3E857DF2C55414D928 /* [CP] Check Pods Manifest.lock */,
 				90A538A32629224F00B43966 /* Sources */,
 				90A538A42629224F00B43966 /* Frameworks */,
 				90A538A52629224F00B43966 /* Resources */,
@@ -252,6 +296,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A8EB9E926704A73CF2E685C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Buscardor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB9051D0BA47BAC9BFB699A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BuscardorTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE234A3E857DF2C55414D928 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Buscardor-BuscardorUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		90A538822629224C00B43966 /* Sources */ = {
@@ -433,6 +546,7 @@
 		};
 		90A538B12629224F00B43966 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BD59EA078E8CA884C91A71C /* Pods-Buscardor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -452,6 +566,7 @@
 		};
 		90A538B22629224F00B43966 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDDEE99A1B077259BD50ECBA /* Pods-Buscardor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -471,6 +586,7 @@
 		};
 		90A538B42629224F00B43966 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 269761321942EC6650E4568A /* Pods-BuscardorTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -493,6 +609,7 @@
 		};
 		90A538B52629224F00B43966 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77B8ADAE4FC2E337D3E0A436 /* Pods-BuscardorTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -515,6 +632,7 @@
 		};
 		90A538B72629224F00B43966 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C6EC5757D75E00AD8A63359 /* Pods-Buscardor-BuscardorUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -535,6 +653,7 @@
 		};
 		90A538B82629224F00B43966 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6C9219696021B7803B3D737 /* Pods-Buscardor-BuscardorUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
