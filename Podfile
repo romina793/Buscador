@@ -6,6 +6,7 @@ target 'Buscardor' do
   use_frameworks!
 
   # Pods for Buscardor
+  pod 'Alamofire', '5.2.1'
 
   target 'BuscardorTests' do
     inherit! :search_paths
