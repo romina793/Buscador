@@ -15,4 +15,6 @@ internal struct ItemViewModel {
     var titleLabelText: String
     var subtitleLabelText: String
     var image: String
+    let id: String
+    let currencyId: String?
 }

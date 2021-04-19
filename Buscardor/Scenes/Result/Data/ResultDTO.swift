@@ -12,7 +12,9 @@ struct ResultDTO: Codable {
 }
 
 struct ItemDTO: Codable {
-  let price: Double?
-  let title: String?
-  let thumbnail: String?
+    let price: Double?
+    let title: String?
+    let thumbnail: String?
+    let id: String?
+    let currency_id: String?
 }
