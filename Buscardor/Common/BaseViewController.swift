@@ -26,6 +26,7 @@ internal class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.titleView = searchBar
+        self.navigationItem.rightBarButtonItem = nil
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,13 +34,13 @@ internal class BaseViewController: UIViewController {
         view.backgroundColor = UIColor.hexStringToUIColor(hex: .primary)
         navigationController?.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: .primary)
         
-        var backImage = UIImage(named: "arrow")
-        backImage = resizeImage(image: backImage!, newWidth: 40)
+        guard var backImage = UIImage(named: "arrow") else {return}
+        backImage = resizeImage(image: backImage, newWidth: 40)!
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationController?.navigationBar.backIndicatorImage = backImage
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(addTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(tapCancel))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,7 +48,7 @@ internal class BaseViewController: UIViewController {
         searchBar.endEditing(true)
     }
     
-    @objc func addTapped() {
+    @objc func tapCancel() {
         searchBar.endEditing(true)
     }
     
@@ -69,7 +70,6 @@ internal class BaseViewController: UIViewController {
 extension BaseViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        #warning("debería borrar el stack cuando entro a esta pantalla")
         let controller = ResultViewController()
         controller.itemSearch = self.searchBar.text ?? ""
         navigationController?.pushViewController(controller, animated: true)

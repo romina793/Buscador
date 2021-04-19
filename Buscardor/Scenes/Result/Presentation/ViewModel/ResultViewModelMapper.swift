@@ -17,7 +17,9 @@ internal class ResultViewModelMapper: ResultViewModelMapperProtocol{
                 ItemViewModel(
                     titleLabelText: mapTitleItem(from: $0),
                     subtitleLabelText: mapPrice(from: $0),
-                    image: mapImage(from: $0))
+                    image: mapImage(from: $0),
+                    id: mapId(from: $0),
+                    currencyId: mapCurrencyId(from: $0))
             )
         })
         return section
@@ -33,6 +35,14 @@ internal class ResultViewModelMapper: ResultViewModelMapperProtocol{
     
     private func mapImage(from item: ItemDTO) -> String {
         return item.thumbnail ?? ""
+    }
+    
+    private func mapId(from item: ItemDTO) -> String {
+        return item.id ?? ""
+    }
+    
+    private func mapCurrencyId(from item: ItemDTO) -> String {
+        return item.currency_id ?? ""
     }
 
 }

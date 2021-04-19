@@ -30,13 +30,16 @@ internal protocol ResultViewProtocol {
 
      */
     func setUp()
+    
+    /**
+
+     Setup a view with a given view model that the view needs to be renderized
+
+     - Parameters:
+     - model: The model that the view need's to be renderized
+
+     */
     func setItemViewModel(item: [ItemViewModel])
-    
-    /// Show loading
-    func showLoading()
-    
-    /// Hide loading
-    func hideLoading()
     
 }
 

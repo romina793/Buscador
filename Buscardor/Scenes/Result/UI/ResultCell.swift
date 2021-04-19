@@ -33,24 +33,11 @@ internal class ResultCell: UITableViewCell {
     internal lazy var priceText: UILabel = {
         let text = UILabel()
         text.numberOfLines = 0
-        text.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)
-        text.font = UIFont.systemFont(ofSize: 18, weight: .light)
+        text.font = UIFont(name: "HelveticaNeue-Thin", size: 20.0)
+        text.font = UIFont.systemFont(ofSize: 20, weight: .light)
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
-
-    
-//    private lazy var linkButton: UIButton = {
-//        let button = UIButton()
-//        button.contentMode = .center
-//        button.layer.cornerRadius = 5
-//        button.layer.borderWidth = 1
-//        button.setTitle("Ver más", for: .normal)
-//        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .light)
-//        button.backgroundColor = UIColor.hexStringToUIColor(hex: .secondary)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }()
         
     // MARK: Initalizers
     override init(style: UITableViewCell.CellStyle,
@@ -66,6 +53,7 @@ internal class ResultCell: UITableViewCell {
     
     func setImage(_ url: String) {
         var newUrl = url
+//        agregar validación para ver si viene sin la s
         newUrl.insert("s", at: url.index(url.startIndex, offsetBy: 4))
         imageV.downloaded(from: newUrl)
     }

@@ -18,13 +18,10 @@ internal class ResultPresenter: ResultPresenterProtocol {
     }
     
     func searchProduct(_ product: String) {
-//        view?.showLoading()
         interactor.fetchProduct(with: product) { (model) in
-//            self.view?.hideLoading()
             self.view?.setItemViewModel(item: model)
             self.view?.setUp()
         } onFailure: { (error) in
-//            self.view?.hideLoading()
             #warning("WIP")
         }
     }

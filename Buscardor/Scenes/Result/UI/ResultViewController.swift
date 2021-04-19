@@ -62,7 +62,12 @@ extension ResultViewController: UITableViewDataSource, UITableViewDelegate {
         cell.titleLabel.text = item.titleLabelText
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        formatter.currencySymbol = "$ "
+        switch item.currencyId {
+        case "USD":
+            formatter.currencySymbol = "U$S "
+        default:
+            formatter.currencySymbol = "$ "
+        }
         formatter.minimumFractionDigits = 0
         let double = Double(item.subtitleLabelText )
         var result = formatter.string(from: double! as NSNumber)!
@@ -81,16 +86,18 @@ extension ResultViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = detailViewController(for: indexPath.row)
-//        navigationController?.pushViewController(vc, animated: true)
         let vc = DetailViewController()
-        vc.data = selectedItem
+        vc.id = selectedItem?.id
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedItem = items[indexPath.row]
         return indexPath
+    }
+    
+    internal func reloadTableView() {
+        self.tableView.reloadData()
     }
 
 }
@@ -103,22 +110,6 @@ extension ResultViewController: ResultViewProtocol {
     
     func setUp() {
         setUpView()
-    }
-    
-    func showLoading() {
-        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        loadingIndicator.startAnimating();
-
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func hideLoading() {
-        dismiss(animated: false, completion: nil)
     }
 }
 
