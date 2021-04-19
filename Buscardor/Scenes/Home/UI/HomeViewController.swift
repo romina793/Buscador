@@ -9,23 +9,44 @@ import UIKit
 
 internal class HomeViewController: BaseViewController {
     
+    private var presenter: HomePresenterProtocol
+    private var dependencyResolver: HomeDependencyResolverProtocol
+    
     // MARK: UI components
     private lazy var imageV: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "launch-screen")
+        view.image = UIImage(named: String.image)
         view.contentMode = .center
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
-    // MARK: Lifecycle
+    
+    //MARK: Lifecycle
+    internal init(dependencyResolver: HomeDependencyResolverProtocol = HomeDependencyResolver()) {
+        self.dependencyResolver = dependencyResolver
+        self.presenter = dependencyResolver.resolvePresenter()
+        super.init(nibName: nil, bundle: nil)
+        presenter.view = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpView()
+        presenter.viewIsReady()
     }
 
 }
 
+extension HomeViewController: HomeViewProtocol {
+    
+    func setUp() {
+        setUpView()
+    }
+}
+
+// MARK: Programmatically implementation
 extension HomeViewController: ProgrammaticallyProtocol {
     func setAddSubview() {
         view.addSubview(imageV)
@@ -38,4 +59,8 @@ extension HomeViewController: ProgrammaticallyProtocol {
         ])
     }
     
+}
+
+fileprivate extension String {
+    static let image = "launch-screen"
 }

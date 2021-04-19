@@ -34,5 +34,5 @@ extension UIColor {
 
 enum AssetsColor: String {
     case primary = "#ffe600"
-    case secondary = "#2d3277"
+    case secondary = "#2E5EF3"
 }

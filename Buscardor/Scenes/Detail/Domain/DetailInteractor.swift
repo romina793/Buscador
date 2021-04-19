@@ -16,7 +16,7 @@ internal class DetailInteractor: DetailInteractorProtocol {
         self.mapper = mapper
     }
     
-    func detailProduct(with id: String, onSuccess: @escaping (DetailViewModel) -> Void, onFailure: @escaping (AFError) -> Void)  {
+    internal func detailProduct(with id: String, onSuccess: @escaping (DetailViewModel) -> Void, onFailure: @escaping (AFError) -> Void)  {
         let url = String.Request.path + id
         AF.request(url)
             .validate()

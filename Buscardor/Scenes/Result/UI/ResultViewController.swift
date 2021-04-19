@@ -14,6 +14,9 @@ internal class ResultViewController: BaseViewController {
     var list: [ItemDTO] = []
     var itemSearch: String = ""
     
+    private var presenter: ResultPresenterProtocol
+    private var dependencyResolver: ResultDependencyResolverProtocol
+    
     // MARK: UI components
     private lazy var tableView: UITableView = {
         let table = UITableView()
@@ -25,11 +28,6 @@ internal class ResultViewController: BaseViewController {
         table.register(ResultCell.self, forCellReuseIdentifier: ResultCell.identifier)
         return table
     }()
-    
-    
-    private var presenter: ResultPresenterProtocol
-    private var dependencyResolver: ResultDependencyResolverProtocol
-    
 
     //MARK: Lifecycle
     init(dependencyResolver: ResultDependencyResolverProtocol = ResultDependencyResolver()) {
@@ -60,19 +58,8 @@ extension ResultViewController: UITableViewDataSource, UITableViewDelegate {
         let item = items[indexPath.row]
         cell.setImage(item.image)
         cell.titleLabel.text = item.titleLabelText
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        switch item.currencyId {
-        case "USD":
-            formatter.currencySymbol = "U$S "
-        default:
-            formatter.currencySymbol = "$ "
-        }
-        formatter.minimumFractionDigits = 0
-        let double = Double(item.subtitleLabelText )
-        var result = formatter.string(from: double! as NSNumber)!
-        result = result.replacingOccurrences(of: ",", with: ".")
-        cell.priceText.text = result
+        let newFormat = FormatterHelper.setFormatterNumber(currencyId: item.currencyId ?? "", price: item.subtitleLabelText )
+        cell.priceText.text = newFormat
         cell.selectionStyle = .none
         return cell
     }
@@ -111,6 +98,23 @@ extension ResultViewController: ResultViewProtocol {
     func setUp() {
         setUpView()
     }
+    
+    func showNotFoundController() {
+        let controller = NotFoundViewController()
+        let editorViewController: UINavigationController = UINavigationController(rootViewController: controller)
+        editorViewController.modalPresentationStyle = .fullScreen
+        navigationController?.present(editorViewController, animated: true)
+    }
+    
+    func showFeedbackError() {
+        let controller = GenericErrorViewController {
+            self.presenter.searchProduct(self.itemSearch)
+            self.dismiss(animated: true, completion: nil)
+        }
+        let editorViewController: UINavigationController = UINavigationController(rootViewController: controller)
+        editorViewController.modalPresentationStyle = .fullScreen
+        navigationController?.present(editorViewController, animated: true)
+    }
 }
 
 
@@ -131,8 +135,4 @@ extension ResultViewController: ProgrammaticallyProtocol {
         ])
     }
     
-}
-
-fileprivate extension String {
-    static let title = ""
 }

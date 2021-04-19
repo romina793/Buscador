@@ -13,16 +13,22 @@ internal class ResultPresenter: ResultPresenterProtocol {
     private var interactor: ResultInteractorProtocol
 
 
-    init(interactor: ResultInteractorProtocol) {
+    internal init(interactor: ResultInteractorProtocol) {
         self.interactor = interactor
     }
     
-    func searchProduct(_ product: String) {
+    internal func searchProduct(_ product: String) {
         interactor.fetchProduct(with: product) { (model) in
-            self.view?.setItemViewModel(item: model)
-            self.view?.setUp()
+            if model.isEmpty {
+                self.view?.showNotFoundController()
+            } else {
+                self.view?.setItemViewModel(item: model)
+                self.view?.setUp()
+            }
+
         } onFailure: { (error) in
-            #warning("WIP")
+            print("ResultPresenter -> ⚠️ Cannot search - Error: \(error)")
+            self.view?.showFeedbackError()
         }
     }
 }

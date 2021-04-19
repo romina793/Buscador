@@ -9,7 +9,7 @@ import Foundation
 
 internal class ResultDependencyResolver: ResultDependencyResolverProtocol {
     
-    func resolvePresenter() -> ResultPresenterProtocol {
+    internal func resolvePresenter() -> ResultPresenterProtocol {
         return ResultPresenter(
             interactor: resolveInteractor())
     }

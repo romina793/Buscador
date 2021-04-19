@@ -41,6 +41,10 @@ internal protocol ResultViewProtocol {
      */
     func setItemViewModel(item: [ItemViewModel])
     
+    func showNotFoundController()
+    
+    func showFeedbackError()
+    
 }
 
 internal protocol ResultPresenterProtocol {

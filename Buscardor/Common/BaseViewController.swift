@@ -26,21 +26,13 @@ internal class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.titleView = searchBar
-        self.navigationItem.rightBarButtonItem = nil
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.backgroundColor = UIColor.hexStringToUIColor(hex: .primary)
-        navigationController?.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: .primary)
-        
-        guard var backImage = UIImage(named: "arrow") else {return}
-        backImage = resizeImage(image: backImage, newWidth: 40)!
-        self.navigationController?.navigationBar.tintColor = UIColor.black
-        self.navigationController?.navigationBar.backIndicatorImage = backImage
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(tapCancel))
+        setColor()
+        setBackImage()
+        setCancelButton()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -48,20 +40,37 @@ internal class BaseViewController: UIViewController {
         searchBar.endEditing(true)
     }
     
+    internal func setColor() {
+        view.backgroundColor = UIColor.hexStringToUIColor(hex: .primary)
+        navigationController?.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: .primary)
+    }
+    
+    internal func setBackImage() {
+        guard var backImage = UIImage(named: "arrow") else {return}
+        backImage = resizeImage(image: backImage, newWidth: 40) ?? UIImage()
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.backIndicatorImage = backImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+    }
+    
+    internal func setCancelButton() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(tapCancel))
+    }
+    
     @objc func tapCancel() {
         searchBar.endEditing(true)
     }
     
-    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
-
+    internal func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
         let scale = newWidth / image.size.width
         let newHeight = image.size.height * scale
         UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
         image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
-
+        
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-
+        
         return newImage
     }
     
@@ -69,7 +78,7 @@ internal class BaseViewController: UIViewController {
 
 extension BaseViewController: UISearchBarDelegate {
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    internal func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let controller = ResultViewController()
         controller.itemSearch = self.searchBar.text ?? ""
         navigationController?.pushViewController(controller, animated: true)

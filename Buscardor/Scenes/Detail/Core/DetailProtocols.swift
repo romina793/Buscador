@@ -31,7 +31,9 @@ internal protocol DetailViewProtocol {
      */
     func setUp()
     
-    func setDetailViewModel(_ viewModel: DetailViewModel) 
+    func setDetailViewModel(_ viewModel: DetailViewModel)
+    
+    func showFeedbackError()
     
 }
 

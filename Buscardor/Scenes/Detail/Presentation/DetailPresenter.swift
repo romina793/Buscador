@@ -13,16 +13,17 @@ internal class DetailPresenter: DetailPresenterProtocol {
     private var interactor: DetailInteractorProtocol
 
 
-    init(interactor: DetailInteractorProtocol) {
+    internal init(interactor: DetailInteractorProtocol) {
         self.interactor = interactor
     }
     
-    func detailProduct(_ id: String) {
+    internal func detailProduct(_ id: String) {
         interactor.detailProduct(with: id) { (model) in
             self.view?.setDetailViewModel(model)
             self.view?.setUp()
         } onFailure: { (error) in
-            #warning("WIP")
+            print("DetailPresenter -> ⚠️ Cannot bring the detail - Error: \(error)")
+            self.view?.showFeedbackError()
         }
     }
 }

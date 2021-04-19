@@ -34,7 +34,7 @@ internal class ResultViewModelMapper: ResultViewModelMapperProtocol{
     }
     
     private func mapImage(from item: ItemDTO) -> String {
-        return item.thumbnail ?? ""
+        return item.image ?? ""
     }
     
     private func mapId(from item: ItemDTO) -> String {
@@ -42,7 +42,7 @@ internal class ResultViewModelMapper: ResultViewModelMapperProtocol{
     }
     
     private func mapCurrencyId(from item: ItemDTO) -> String {
-        return item.currency_id ?? ""
+        return item.currencyId ?? ""
     }
 
 }

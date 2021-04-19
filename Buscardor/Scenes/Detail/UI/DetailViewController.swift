@@ -173,7 +173,8 @@ internal class DetailViewController: BaseViewController, UIScrollViewDelegate, D
                 imageV.frame = frame
                 scrollView.addSubview(imageV)
             }
-        setFormatterNumber()
+            let newFormat = FormatterHelper.setFormatterNumber(currencyId: viewModel?.currencyId ?? "", price: priceText.text ?? "")
+            priceText.text = newFormat
         }
     }
     
@@ -191,8 +192,19 @@ internal class DetailViewController: BaseViewController, UIScrollViewDelegate, D
         pageControl.currentPage = Int(pageNumber)
     }
     
+    func showFeedbackError() {
+        let controller = GenericErrorViewController {
+            self.presenter.detailProduct(self.id ?? "")
+            self.dismiss(animated: true, completion: nil)
+        }
+        let editorViewController: UINavigationController = UINavigationController(rootViewController: controller)
+        editorViewController.modalPresentationStyle = .fullScreen
+        navigationController?.present(editorViewController, animated: true)
+    }
+    
 }
 
+// MARK: Programmatically implementation
 extension DetailViewController: ProgrammaticallyProtocol {
     
     func setAddSubview(){
@@ -219,7 +231,7 @@ extension DetailViewController: ProgrammaticallyProtocol {
         ])
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: soldQuantityLabel.bottomAnchor, constant: 16),
+            scrollView.topAnchor.constraint(equalTo: soldQuantityLabel.bottomAnchor, constant: 24),
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             scrollView.heightAnchor.constraint(equalToConstant: 300),

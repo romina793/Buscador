@@ -9,7 +9,7 @@ import Foundation
 
 internal class DetailDependencyResolver: DetailDependencyResolverProtocol {
     
-    func resolvePresenter() -> DetailPresenterProtocol {
+    internal func resolvePresenter() -> DetailPresenterProtocol {
         return DetailPresenter(
             interactor: resolveInteractor())
     }
