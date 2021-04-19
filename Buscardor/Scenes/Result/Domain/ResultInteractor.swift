@@ -16,7 +16,7 @@ internal class ResultInteractor: ResultInteractorProtocol {
             self.mapper = mapper
         }
     
-    func fetchProduct(with product: String, onSuccess: @escaping ([ItemViewModel]) -> Void, onFailure: @escaping (AFError) -> Void)  {
+    internal func fetchProduct(with product: String, onSuccess: @escaping ([ItemViewModel]) -> Void, onFailure: @escaping (AFError) -> Void)  {
         var url = String.Request.path + product
         url = url.replacingOccurrences(of: " ", with: "%20")
         AF.request(url)

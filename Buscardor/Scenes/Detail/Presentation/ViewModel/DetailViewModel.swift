@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DetailViewModel {
+internal struct DetailViewModel {
     let price: String
     let currencyId: String
     let condition: String
@@ -16,6 +16,6 @@ struct DetailViewModel {
     let pictures: [PicturesViewModel]
 }
 
-struct PicturesViewModel {
+internal struct PicturesViewModel {
     let secureUrl: String
 }

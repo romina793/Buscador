@@ -10,7 +10,7 @@ import Foundation
 internal class DetailViewModelMapper: DetailViewModelMapperProtocol{
     
     // MARK: DetailDTO Mapping
-    func map(from model: DetailDTO) -> DetailViewModel {
+    internal func map(from model: DetailDTO) -> DetailViewModel {
         return DetailViewModel(
             price: mapPrice(from: model),
             currencyId: mapCurrencyId(from: model),
@@ -25,7 +25,7 @@ internal class DetailViewModelMapper: DetailViewModelMapperProtocol{
     }
     
     private func mapCurrencyId(from item: DetailDTO) -> String {
-        return item.currency_id ?? ""
+        return item.currencyId ?? ""
     }
     
     private func mapCondition(from item: DetailDTO) -> String {
@@ -37,11 +37,11 @@ internal class DetailViewModelMapper: DetailViewModelMapperProtocol{
     }
     
     private func mapSouldQuantity(from item: DetailDTO) -> Int {
-        return item.sold_quantity ?? 0
+        return item.soldQuantity ?? 0
     }
     
     // MARK: PicturesDTO Mapping
-    func mapPicture(from model: [PicturesDTO]) -> [PicturesViewModel] {
+    private func mapPicture(from model: [PicturesDTO]) -> [PicturesViewModel] {
         var section: [PicturesViewModel] = []
         model.forEach({
             section.append(
@@ -52,7 +52,7 @@ internal class DetailViewModelMapper: DetailViewModelMapperProtocol{
     }
     
     private func mapImage(from item: PicturesDTO) -> String {
-        return item.secure_url ?? ""
+        return item.secureUrl ?? ""
     }
 
 }

@@ -36,6 +36,13 @@
 		90A53B0D262D04AA00B43966 /* DetailDependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A53B0C262D04AA00B43966 /* DetailDependencyResolver.swift */; };
 		90A53B13262D04C800B43966 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A53B12262D04C800B43966 /* DetailViewModel.swift */; };
 		90A53B1B262D04D300B43966 /* DetailViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A53B1A262D04D300B43966 /* DetailViewModelMapper.swift */; };
+		90A53B2E262DA6EA00B43966 /* NotFoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A53B2D262DA6EA00B43966 /* NotFoundViewController.swift */; };
+		90A53B3C262DB6FA00B43966 /* GenericErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A53B3B262DB6FA00B43966 /* GenericErrorViewController.swift */; };
+		90A53C18262E2B9900B43966 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A53C17262E2B9900B43966 /* HomePresenter.swift */; };
+		90A53C21262E381A00B43966 /* HomeDependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A53C20262E381A00B43966 /* HomeDependencyResolver.swift */; };
+		90A53C29262E382300B43966 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A53C28262E382300B43966 /* HomeProtocols.swift */; };
+		90A53C2E262E3BF900B43966 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A53C2D262E3BF900B43966 /* UIImageView.swift */; };
+		90A53C33262E3C2900B43966 /* FormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A53C32262E3C2900B43966 /* FormatterHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +101,13 @@
 		90A53B0C262D04AA00B43966 /* DetailDependencyResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDependencyResolver.swift; sourceTree = "<group>"; };
 		90A53B12262D04C800B43966 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		90A53B1A262D04D300B43966 /* DetailViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelMapper.swift; sourceTree = "<group>"; };
+		90A53B2D262DA6EA00B43966 /* NotFoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundViewController.swift; sourceTree = "<group>"; };
+		90A53B3B262DB6FA00B43966 /* GenericErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericErrorViewController.swift; sourceTree = "<group>"; };
+		90A53C17262E2B9900B43966 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		90A53C20262E381A00B43966 /* HomeDependencyResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDependencyResolver.swift; sourceTree = "<group>"; };
+		90A53C28262E382300B43966 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		90A53C2D262E3BF900B43966 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		90A53C32262E3C2900B43966 /* FormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterHelper.swift; sourceTree = "<group>"; };
 		DFFAA4AAD59C88F04982612A /* Pods_Buscardor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buscardor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C9219696021B7803B3D737 /* Pods-Buscardor-BuscardorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buscardor-BuscardorUITests.release.xcconfig"; path = "Target Support Files/Pods-Buscardor-BuscardorUITests/Pods-Buscardor-BuscardorUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EDDEE99A1B077259BD50ECBA /* Pods-Buscardor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buscardor.release.xcconfig"; path = "Target Support Files/Pods-Buscardor/Pods-Buscardor.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				90A539EE262A3BF200B43966 /* UIColor.swift */,
+				90A53C2D262E3BF900B43966 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -223,6 +238,8 @@
 		90A539F9262A4A0200B43966 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				90A53C1F262E380100B43966 /* Core */,
+				90A53C16262E2B8900B43966 /* Presentation */,
 				90A539C6262A1F4500B43966 /* UI */,
 			);
 			path = Home;
@@ -307,8 +324,10 @@
 		90A53A91262B856400B43966 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				90A53B2C262DA6AF00B43966 /* Views */,
 				90A53A92262B858500B43966 /* BaseViewController.swift */,
 				90A53AA1262B9C8A00B43966 /* ProgrammaticallyProtocol.swift */,
+				90A53C32262E3C2900B43966 /* FormatterHelper.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -362,6 +381,32 @@
 				90A53B1A262D04D300B43966 /* DetailViewModelMapper.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		90A53B2C262DA6AF00B43966 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				90A53B2D262DA6EA00B43966 /* NotFoundViewController.swift */,
+				90A53B3B262DB6FA00B43966 /* GenericErrorViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		90A53C16262E2B8900B43966 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				90A53C17262E2B9900B43966 /* HomePresenter.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		90A53C1F262E380100B43966 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				90A53C20262E381A00B43966 /* HomeDependencyResolver.swift */,
+				90A53C28262E382300B43966 /* HomeProtocols.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		D2FF03CDC8403295F5127674 /* Frameworks */ = {
@@ -612,22 +657,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				90A53A34262B2C8700B43966 /* ResultDTO.swift in Sources */,
+				90A53C21262E381A00B43966 /* HomeDependencyResolver.swift in Sources */,
 				90A53A5B262B5B7B00B43966 /* ResultViewModel.swift in Sources */,
 				90A53A18262A7C6900B43966 /* DetailViewController.swift in Sources */,
 				90A53A63262B60F300B43966 /* ResultDependencyResolver.swift in Sources */,
 				90A53AFB262D047A00B43966 /* DetailDTO.swift in Sources */,
+				90A53B2E262DA6EA00B43966 /* NotFoundViewController.swift in Sources */,
 				90A5388A2629224C00B43966 /* AppDelegate.swift in Sources */,
 				90A53A93262B858500B43966 /* BaseViewController.swift in Sources */,
 				90A539EF262A3BF200B43966 /* UIColor.swift in Sources */,
+				90A53C33262E3C2900B43966 /* FormatterHelper.swift in Sources */,
 				90A53B1B262D04D300B43966 /* DetailViewModelMapper.swift in Sources */,
 				90A539CB262A1F6100B43966 /* HomeViewController.swift in Sources */,
 				90A53B0D262D04AA00B43966 /* DetailDependencyResolver.swift in Sources */,
+				90A53C29262E382300B43966 /* HomeProtocols.swift in Sources */,
 				90A53A76262B6F0300B43966 /* ResultInteractor.swift in Sources */,
+				90A53C18262E2B9900B43966 /* HomePresenter.swift in Sources */,
+				90A53C2E262E3BF900B43966 /* UIImageView.swift in Sources */,
 				90A53B08262D049800B43966 /* DetailPresenter.swift in Sources */,
 				90A53B03262D048D00B43966 /* DetailProtocols.swift in Sources */,
 				90A53A13262A70F600B43966 /* ResultCell.swift in Sources */,
 				90A53AA2262B9C8B00B43966 /* ProgrammaticallyProtocol.swift in Sources */,
 				90A539FD262A4A3400B43966 /* ResultViewController.swift in Sources */,
+				90A53B3C262DB6FA00B43966 /* GenericErrorViewController.swift in Sources */,
 				90A53B13262D04C800B43966 /* DetailViewModel.swift in Sources */,
 				90A53A55262B5B4500B43966 /* ResultProtocols.swift in Sources */,
 				90A53A46262B59A400B43966 /* ResultPresenter.swift in Sources */,

@@ -7,14 +7,23 @@
 
 import UIKit
 
-struct ResultDTO: Codable {
+internal struct ResultDTO: Codable {
   let results: [ItemDTO]?
 }
 
-struct ItemDTO: Codable {
+internal struct ItemDTO: Codable {
     let price: Double?
     let title: String?
-    let thumbnail: String?
+    let image: String?
     let id: String?
-    let currency_id: String?
+    let currencyId: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case price
+        case title
+        case image = "thumbnail"
+        case id
+        case currencyId = "currency_id"
+        
+    }
 }

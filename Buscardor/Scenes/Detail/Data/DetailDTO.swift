@@ -7,15 +7,28 @@
 
 import Foundation
 
-struct DetailDTO: Codable {
+internal struct DetailDTO: Codable {
     let price: Double?
-    let currency_id: String?
+    let currencyId: String?
     let condition: String?
     let title: String?
-    let sold_quantity: Int?
+    let soldQuantity: Int?
     let pictures: [PicturesDTO]
+    
+    enum CodingKeys: String, CodingKey {
+        case price
+        case currencyId = "currency_id"
+        case condition
+        case title
+        case soldQuantity = "sold_quantity"
+        case pictures
+    }
 }
 
-struct PicturesDTO: Codable {
-    let secure_url: String?
+internal struct PicturesDTO: Codable {
+    let secureUrl: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case secureUrl = "secure_url"
+    }
 }
