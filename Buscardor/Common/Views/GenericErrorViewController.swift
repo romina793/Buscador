@@ -44,7 +44,7 @@ internal class GenericErrorViewController: BaseViewController {
     
     lazy var retryButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Reintentar", for: .normal)
+        button.setTitle(String.retry, for: .normal)
         button.addTarget(self, action: #selector(tapMain), for: .touchUpInside)
         button.setTitleColor(UIColor.hexStringToUIColor(hex: .secondary), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -122,4 +122,5 @@ fileprivate extension String {
     static let image = "wifi"
     static let title = "¡Parece que no hay internet!"
     static let description = "Revisa tu conexión para seguir navegando"
+    static let retry = "Reintentar"
 }
