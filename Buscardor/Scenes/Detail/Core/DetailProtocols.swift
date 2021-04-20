@@ -58,6 +58,15 @@ internal protocol DetailDependencyResolverProtocol {
      
      */
     func resolvePresenter() -> DetailPresenterProtocol
+    
+    /**
+     
+     Returns de interactor
+     
+     - Returns: DetailInteractorProtocol
+     
+     */
+    func resolveInteractor() -> DetailInteractorProtocol
 }
 
 internal protocol DetailInteractorProtocol {

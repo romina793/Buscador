@@ -15,7 +15,7 @@ internal class ResultDependencyResolver: ResultDependencyResolverProtocol {
     }
     
     //    MARK: - Interactor
-    private func resolveInteractor() -> ResultInteractorProtocol {
+    internal func resolveInteractor() -> ResultInteractorProtocol {
         return ResultInteractor(
             mapper: resolveViewModelMapper())
     }

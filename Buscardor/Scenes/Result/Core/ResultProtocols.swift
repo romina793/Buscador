@@ -74,7 +74,16 @@ internal protocol ResultDependencyResolverProtocol {
      - Returns: ResultPresenterProtocol
      
      */
-    func resolvePresenter() -> ResultPresenterProtocol 
+    func resolvePresenter() -> ResultPresenterProtocol
+    
+    /**
+     
+     Returns de interactor
+     
+     - Returns: ResultInteractorProtocol
+     
+     */
+    func resolveInteractor() -> ResultInteractorProtocol
 }
 
 internal protocol ResultInteractorProtocol {
