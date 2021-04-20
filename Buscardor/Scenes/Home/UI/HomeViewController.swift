@@ -21,7 +21,7 @@ internal class HomeViewController: BaseViewController {
         return view
     }()
     
-    //MARK: Lifecycle
+    // MARK: Initalizers
     internal init(dependencyResolver: HomeDependencyResolverProtocol = HomeDependencyResolver()) {
         self.dependencyResolver = dependencyResolver
         self.presenter = dependencyResolver.resolvePresenter()
@@ -32,6 +32,8 @@ internal class HomeViewController: BaseViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewIsReady()
@@ -39,6 +41,7 @@ internal class HomeViewController: BaseViewController {
 
 }
 
+// MARK: HomeViewProtocol
 extension HomeViewController: HomeViewProtocol {
     
     func setUp() {

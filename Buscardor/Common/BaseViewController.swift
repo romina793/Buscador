@@ -16,6 +16,7 @@ internal class BaseViewController: UIViewController {
         search.searchTextField.backgroundColor = UIColor.white
         search.backgroundColor = UIColor.hexStringToUIColor(hex: .primary)
         search.delegate = self
+        search.searchTextField.textColor = UIColor.darkGray
         search.placeholder = String.placeHolder
         search.searchTextField.autocapitalizationType = .none
         search.translatesAutoresizingMaskIntoConstraints = false

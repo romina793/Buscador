@@ -48,7 +48,7 @@ internal class NotFoundViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.backgroundColor = UIColor.systemGray6
+        view.backgroundColor = UIColor.hexStringToUIColor(hex: .ligthGray)
         navigationController?.navigationBar.isHidden = false
     }
     

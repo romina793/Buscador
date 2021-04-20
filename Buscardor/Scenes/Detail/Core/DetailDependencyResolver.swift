@@ -15,7 +15,7 @@ internal class DetailDependencyResolver: DetailDependencyResolverProtocol {
     }
     
     //    MARK: - Interactor
-    private func resolveInteractor() -> DetailInteractorProtocol {
+    internal func resolveInteractor() -> DetailInteractorProtocol {
         return DetailInteractor(
             mapper: resolveViewModelMapper())
     }

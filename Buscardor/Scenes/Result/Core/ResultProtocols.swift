@@ -25,9 +25,6 @@ internal protocol ResultViewProtocol {
 
      Setup a view with a given view model that the view needs to be renderized
 
-     - Parameters:
-     - model: The model that the view need's to be renderized
-
      */
     func setUp()
     
@@ -36,13 +33,23 @@ internal protocol ResultViewProtocol {
      Setup a view with a given view model that the view needs to be renderized
 
      - Parameters:
-     - model: The model that the view need's to be renderized
+     - item: The model that the view need's to be renderized
 
      */
     func setItemViewModel(item: [ItemViewModel])
     
+    /**
+
+     Setup not found screen
+
+     */
     func showNotFoundController()
-    
+        
+    /**
+
+     Setup error screen
+
+     */
     func showFeedbackError()
     
 }
@@ -74,7 +81,16 @@ internal protocol ResultDependencyResolverProtocol {
      - Returns: ResultPresenterProtocol
      
      */
-    func resolvePresenter() -> ResultPresenterProtocol 
+    func resolvePresenter() -> ResultPresenterProtocol
+    
+    /**
+     
+     Returns de interactor
+     
+     - Returns: ResultInteractorProtocol
+     
+     */
+    func resolveInteractor() -> ResultInteractorProtocol
 }
 
 internal protocol ResultInteractorProtocol {

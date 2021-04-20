@@ -44,14 +44,14 @@ internal class GenericErrorViewController: BaseViewController {
     
     lazy var retryButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Reintentar", for: .normal)
+        button.setTitle(String.retry, for: .normal)
         button.addTarget(self, action: #selector(tapMain), for: .touchUpInside)
         button.setTitleColor(UIColor.hexStringToUIColor(hex: .secondary), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    //MARK: Lifecycle
+    // MARK: Initalizers
     init(onMainButtonTap: @escaping () -> Void ) {
         self.onMainButtonTap = onMainButtonTap
         super.init(nibName: nil, bundle: nil)
@@ -61,6 +61,7 @@ internal class GenericErrorViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
@@ -68,7 +69,7 @@ internal class GenericErrorViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.backgroundColor = UIColor.systemGray6
+        view.backgroundColor = UIColor.hexStringToUIColor(hex: .ligthGray)
         navigationController?.navigationBar.isHidden = false
     }
     
@@ -121,4 +122,5 @@ fileprivate extension String {
     static let image = "wifi"
     static let title = "¡Parece que no hay internet!"
     static let description = "Revisa tu conexión para seguir navegando"
+    static let retry = "Reintentar"
 }
