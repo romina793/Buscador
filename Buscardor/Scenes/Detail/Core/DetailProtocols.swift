@@ -25,14 +25,24 @@ internal protocol DetailViewProtocol {
 
      Setup a view with a given view model that the view needs to be renderized
 
-     - Parameters:
-     - model: The model that the view need's to be renderized
-
      */
     func setUp()
     
+    /**
+
+     Setup a view with a given view model that the view needs to be renderized
+
+     - Parameters:
+     - viewModel: The model that the view need's to be renderized
+
+     */
     func setDetailViewModel(_ viewModel: DetailViewModel)
     
+    /**
+
+     Setup error screen
+
+     */
     func showFeedbackError()
     
 }
@@ -45,6 +55,14 @@ internal protocol DetailPresenterProtocol {
      */
     var view: DetailViewProtocol? { get set }
     
+    /**
+     
+     Notifies that the view is ready and is waiting to present the initial data
+     
+     - Parameters:
+     - id: id for the selected product
+     
+     */
     func detailProduct(_ id: String)
     
 }

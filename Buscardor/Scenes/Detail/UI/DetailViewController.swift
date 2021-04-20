@@ -7,14 +7,14 @@
 
 import UIKit
 
-internal class DetailViewController: BaseViewController, UIScrollViewDelegate, DetailViewProtocol {
+internal class DetailViewController: BaseViewController, UIScrollViewDelegate {
     
     internal var id: String? = ""
     private var viewModel: DetailViewModel?
     private var imagelist: [String] = []
     private var textCondition: String = ""
     private var number: Int = 0
-
+    
     private var presenter: DetailPresenterProtocol
     private var dependencyResolver: DetailDependencyResolverProtocol
     
@@ -23,7 +23,8 @@ internal class DetailViewController: BaseViewController, UIScrollViewDelegate, D
         let view = UIPageControl()
         view.numberOfPages = imagelist.count
         view.currentPage = 0
-        view.pageIndicatorTintColor = UIColor.systemGray6
+        view.pageIndicatorTintColor = UIColor.hexStringToUIColor(hex: .ligthGray)
+        view.pageIndicatorTintColor = UIColor.lightGray
         view.currentPageIndicatorTintColor = UIColor.hexStringToUIColor(hex: .primary)
         view.addTarget(self, action: Selector(("changePage:")), for: UIControl.Event.valueChanged)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +43,7 @@ internal class DetailViewController: BaseViewController, UIScrollViewDelegate, D
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
+    
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "placeholder")
@@ -70,7 +71,7 @@ internal class DetailViewController: BaseViewController, UIScrollViewDelegate, D
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
-
+    
     private lazy var titleLabel: UILabel = {
         let title = UILabel()
         title.numberOfLines = 0
@@ -86,12 +87,13 @@ internal class DetailViewController: BaseViewController, UIScrollViewDelegate, D
         text.numberOfLines = 0
         text.text = viewModel?.price
         text.font = UIFont(name: "HelveticaNeue-Thin", size: 32.0)
+        text.textColor = UIColor.darkGray
         text.font = UIFont.systemFont(ofSize: 32, weight: .light)
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
     
-    //MARK: Lifecycle
+    // MARK: Initalizers
     init(dependencyResolver: DetailDependencyResolverProtocol = DetailDependencyResolver()) {
         self.dependencyResolver = dependencyResolver
         self.presenter = dependencyResolver.resolvePresenter()
@@ -103,57 +105,15 @@ internal class DetailViewController: BaseViewController, UIScrollViewDelegate, D
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.detailProduct(id ?? "")
     }
     
-    func setDetailViewModel(_ viewModel: DetailViewModel) {
-        self.viewModel = viewModel
-        for i in viewModel.pictures {
-            imagelist.append(i.secureUrl)
-        }
-        switch viewModel.condition {
-        case "new":
-            textCondition = "Nuevo"
-        case "used":
-            textCondition = "Usado"
-        default:
-            textCondition = ""
-        }
-        number = viewModel.soldQuantity
-    }
-    
-    func setUp() {
-        setUpView()
-        setInitConfiguration()
-    }
-    
-    func setFormatterNumber() {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        switch viewModel?.currencyId {
-        case "USD":
-            formatter.currencySymbol = "U$S "
-        default:
-            formatter.currencySymbol = "$ "
-        }
-        formatter.minimumFractionDigits = 0
-        guard let double = Double(priceText.text ?? "") else {return}
-        var result = formatter.string(from: NSNumber(value: double))
-        result = result?.replacingOccurrences(of: ",", with: ".")
-        priceText.text = result
-    }
-
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         view.backgroundColor = UIColor.white
-    }
-    
-    func setInitConfiguration() {
-        addImageScrollView()
-        setContentSizeScrollView()
     }
     
     func addImageScrollView() {
@@ -181,15 +141,56 @@ internal class DetailViewController: BaseViewController, UIScrollViewDelegate, D
     func setContentSizeScrollView() {
         self.scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width * CGFloat(imagelist.count), height: self.scrollView.frame.size.height)
     }
-
+    
     func changePage(sender: AnyObject) -> () {
         let x = CGFloat(pageControl.currentPage) * scrollView.frame.size.width
         scrollView.setContentOffset(CGPoint(x: x,y :0), animated: true)
     }
-
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
+    }
+    
+}
+
+// MARK: DetailViewProtocol
+extension DetailViewController: DetailViewProtocol {
+    
+    func setDetailViewModel(_ viewModel: DetailViewModel) {
+        self.viewModel = viewModel
+        for i in viewModel.pictures {
+            imagelist.append(i.secureUrl)
+        }
+        switch viewModel.condition {
+        case "new":
+            textCondition = "Nuevo"
+        case "used":
+            textCondition = "Usado"
+        default:
+            textCondition = ""
+        }
+        number = viewModel.soldQuantity
+    }
+    
+    func setUp() {
+        setUpView()
+    }
+    
+    func setFormatterNumber() {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        switch viewModel?.currencyId {
+        case "USD":
+            formatter.currencySymbol = "U$S "
+        default:
+            formatter.currencySymbol = "$ "
+        }
+        formatter.minimumFractionDigits = 0
+        guard let double = Double(priceText.text ?? "") else {return}
+        var result = formatter.string(from: NSNumber(value: double))
+        result = result?.replacingOccurrences(of: ",", with: ".")
+        priceText.text = result
     }
     
     func showFeedbackError() {
@@ -206,6 +207,11 @@ internal class DetailViewController: BaseViewController, UIScrollViewDelegate, D
 
 // MARK: Programmatically implementation
 extension DetailViewController: ProgrammaticallyProtocol {
+    
+    func setUpAdditionalConfigs() {
+        addImageScrollView()
+        setContentSizeScrollView()
+    }
     
     func setAddSubview(){
         view.addSubview(conditionLabel)
@@ -237,7 +243,7 @@ extension DetailViewController: ProgrammaticallyProtocol {
             scrollView.heightAnchor.constraint(equalToConstant: 300),
             scrollView.widthAnchor.constraint(equalToConstant: self.view.frame.width)
         ])
-
+        
         NSLayoutConstraint.activate([
             pageControl.topAnchor.constraint(equalTo: self.scrollView.bottomAnchor, constant: 16),
             pageControl.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),

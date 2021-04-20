@@ -13,6 +13,7 @@ internal class ResultCell: UITableViewCell {
         return String(describing: self)
     }
         
+    // MARK: UI components
     private lazy var imageV: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: String.image)
@@ -34,6 +35,7 @@ internal class ResultCell: UITableViewCell {
         let text = UILabel()
         text.numberOfLines = 0
         text.font = UIFont(name: "HelveticaNeue-Thin", size: 20.0)
+        text.textColor = UIColor.black
         text.font = UIFont.systemFont(ofSize: 20, weight: .light)
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
@@ -43,7 +45,8 @@ internal class ResultCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle,
                   reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupViews()
+        setUpView()
+        self.backgroundColor = UIColor.white
 
     }
     
@@ -52,24 +55,26 @@ internal class ResultCell: UITableViewCell {
     }
     
     func setImage(_ url: String) {
+        !url.contains("https") ? setImageSecure(url) : imageV.downloaded(from: url)
+    }
+    
+    private func setImageSecure(_ url: String) {
         var newUrl = url
-//        agregar validación para ver si viene sin la s
         newUrl.insert("s", at: url.index(url.startIndex, offsetBy: 4))
         imageV.downloaded(from: newUrl)
     }
-    
-    private func setupViews() {
-        buildViewHierarchy()
-        setupConstraints()
-    }
 
-    private func buildViewHierarchy(){
+}
+// MARK: Programmatically implementation
+extension ResultCell: ProgrammaticallyProtocol {
+    
+    func setAddSubview() {
         addSubview(imageV)
         addSubview(titleLabel)
         addSubview(priceText)
     }
-
-    private func setupConstraints(){
+    
+    func setUpConstraint() {
         let guide = safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             imageV.topAnchor.constraint(equalTo: guide.topAnchor, constant: 16),

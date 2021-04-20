@@ -23,13 +23,13 @@ internal class ResultViewController: BaseViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.dataSource = self
         table.delegate = self
-        table.backgroundColor = UIColor.systemGray6
+        table.backgroundColor = UIColor.hexStringToUIColor(hex: .ligthGray)
         table.showsVerticalScrollIndicator = false
         table.register(ResultCell.self, forCellReuseIdentifier: ResultCell.identifier)
         return table
     }()
 
-    //MARK: Lifecycle
+    // MARK: Initalizers
     init(dependencyResolver: ResultDependencyResolverProtocol = ResultDependencyResolver()) {
         self.dependencyResolver = dependencyResolver
         self.presenter = dependencyResolver.resolvePresenter()
@@ -41,6 +41,7 @@ internal class ResultViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.searchProduct(itemSearch)
@@ -89,6 +90,7 @@ extension ResultViewController: UITableViewDataSource, UITableViewDelegate {
 
 }
 
+// MARK: ResultViewProtocol
 extension ResultViewController: ResultViewProtocol {
     
     func setItemViewModel(item: [ItemViewModel]) {
